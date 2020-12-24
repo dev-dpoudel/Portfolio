@@ -3,18 +3,22 @@ import Contact from './Contact'
 import Projects from './Projects'
 
 const route = [
-    {
-      path: "/home",
-      component: HomePage
-    },
-    {
-      path: "/contact",
-      component: Contact
-    },
-    {
-      path: "/projects",
-      component: Projects
-    }
-  ];
+  {
+    path: "/",
+    component: Projects
+  },
+  {
+    path: "/Home",
+    component: HomePage
+  },
+  {
+    path: "/Contact",
+    component: Contact
+  },
+  {
+    path: "/Projects",
+    component: Projects
+  }
+];
 
-export {route};
+export { route };

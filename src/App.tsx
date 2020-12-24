@@ -1,28 +1,18 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
+import Navigate from './contents/Navigation';
+import Navigator from './contents/Navigator';
+import Contents from './contents/Contents';
+import { Grid } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 
 const App: FunctionComponent<{}> = () => {
   return (
     <Router>
-      <div className="App">
-
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Reacrive Testing
-        </a>
-        </header>
-      </div>
+      <Grid columns={16}>
+        <Navigate />
+        <Contents className="Dark" />
+      </Grid>
     </Router>
   );
 }
