@@ -13,7 +13,7 @@ const projectInfoCard = (projects: any, className: string) => {
   projects.map((item: any) => {
 
     projectInfoCards.push(
-      <Card className= {className} key={item.id}>
+      <Card className={className} key={item.id}>
         <Card.Content>
           <Card.Header>{item.name}</Card.Header>
           <Card.Meta>
@@ -25,7 +25,7 @@ const projectInfoCard = (projects: any, className: string) => {
           <Card.Description>
             <List>
               <List.Item> {item.description} </List.Item>
-              <List.Item> <span className = "languages dark"> {item.language} </span> </List.Item>
+              <List.Item> <span className="languages dark"> {item.language} </span> </List.Item>
             </List>
           </Card.Description>
         </Card.Content>
@@ -46,6 +46,7 @@ const projectInfoCard = (projects: any, className: string) => {
 
 const Projects: FunctionComponent<projectDescription> = (props): React.ReactElement => {
   const projectCards = projectInfoCard(props.projects, props.className);
+
   return (
     <Card.Group className={props.className} fluid="true" itemsPerRow={1} children={projectCards} />
   );

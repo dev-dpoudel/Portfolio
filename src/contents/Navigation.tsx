@@ -40,7 +40,7 @@ const Navigate: FunctionComponent<NavaigationProps> = (props) => {
         />
         <Menu.Item>
           <Checkbox slider
-            Checked={props.theme}
+            checked={props.theme}
             onClick={() => props.toggleTheme(!props.theme)}
             label={"Light"} />
         </Menu.Item>
