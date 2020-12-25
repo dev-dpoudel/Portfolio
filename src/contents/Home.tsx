@@ -1,18 +1,22 @@
 import React, { FunctionComponent } from 'react';
 import { Card, List, Image} from 'semantic-ui-react'
-import profile from '../profile.jpg'
 
 interface HomePageProps {
   className : string
+  profile : any
 }
 
-const ContactDetails: FunctionComponent<{}> = (): React.ReactElement => {
+interface ContactUrlProps{
+  githubLink : string
+}
+
+const ContactDetails: FunctionComponent<ContactUrlProps> = (props): React.ReactElement => {
   return (
     <div>
       <List>
         <List.Item
           icon='github'
-          content={<a href='https://github.com/dev-dpoudel'>Git</a>}
+          content={<a href={props.githubLink}>Git</a>}
         />
       </List>
     </div>
@@ -25,7 +29,7 @@ const HomePage: FunctionComponent<HomePageProps> = (props): React.ReactElement =
   return (
     <Card.Group className= {props.className} fluid="true" itemsPerRow={1}>
       <Card raised >
-        <Image src={profile} wrapped ui={false} size="medium" />
+        <Image src={props.profile.avatar_url} wrapped ui={false} size="medium" alt="Profile Image" />
         <Card.Content>
           <Card.Header>Dinesh Poudel</Card.Header>
           <Card.Meta>Software Engineer</Card.Meta>
@@ -34,7 +38,7 @@ const HomePage: FunctionComponent<HomePageProps> = (props): React.ReactElement =
         </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <ContactDetails />
+          <ContactDetails githubLink = {props.profile.html_url || ""}/>
         </Card.Content>
       </Card>
 

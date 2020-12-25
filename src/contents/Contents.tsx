@@ -19,30 +19,31 @@ const Contents: FunctionComponent<ContentProps> =
           return data.json();
         })
         .then(data => {
-          console.log(data)
           setProjects(data);
         })
         .catch(err => {
           console.log("Error fetching Repositories");
         });
     }, []);
+    
+    const profile = projects[0] || {"owner" : {}}
 
     return (
-      <Grid.Column inverted="true" floated="right" width={14}>
-        <Grid stackable columns={14}>
+      <Grid.Column className={props.className} inverted="true" width={14}>
+        <Grid columns={14}>
           <Segment>
             < Switch >
             <Route exact path="/">
-                <HomePage className="Dark" />
+                <HomePage className={props.className} profile = {profile.owner} />
               </Route>
               <Route exact path="/Home">
-                <HomePage className="Dark" />
+                <HomePage className={props.className} profile = {profile.owner}/>
               </Route>
               <Route path="/Projects">
-                <Projects className="Dark" projects= {projects} />
+                <Projects className={props.className} projects= {projects} />
               </Route>
               <Route path="/Contact">
-                <Contact className="Dark"/>
+                <Contact className={props.className}/>
               </Route>
             </Switch>
           </Segment>

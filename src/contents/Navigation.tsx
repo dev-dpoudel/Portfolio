@@ -1,8 +1,14 @@
 import React, { FunctionComponent, useState } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Checkbox } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
-const Navigate: FunctionComponent<{}> = () => {
+interface NavaigationProps {
+  className: string
+  theme : boolean
+  toggleTheme : (mode : boolean) => any
+}
+
+const Navigate: FunctionComponent<NavaigationProps> = (props) => {
   const [activeMenu, setActiveMenu] = useState("home");
   const history = useHistory();
 
@@ -12,8 +18,8 @@ const Navigate: FunctionComponent<{}> = () => {
   }
 
   return (
-    <div>
-      <Menu icon vertical >
+    <div className={props.className}>
+      <Menu className={props.className} icon vertical >
         <Menu.Item
           name='home'
           active={activeMenu === 'home'}
@@ -32,6 +38,12 @@ const Navigate: FunctionComponent<{}> = () => {
           onClick={handleItemClick}
           icon="envelope"
         />
+        <Menu.Item>
+          <Checkbox slider
+            Checked={props.theme}
+            onClick={() => props.toggleTheme(!props.theme)}
+            label={"Light"} />
+        </Menu.Item>
       </Menu>
     </div>
   );
