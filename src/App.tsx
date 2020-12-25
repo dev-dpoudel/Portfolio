@@ -1,28 +1,18 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FunctionComponent } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Navigate from './contents/Navigation';
+import Contents from './contents/Contents';
+import { Grid } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 
-function App() {
-
-  const [count,setCount] = useState(0)
+const App: FunctionComponent<{}> = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx {count}</code> and save to reload.
-        </p>
-        <button onClick = {() =>setCount(count + 1)}></button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Grid columns={16}>
+        <Navigate />
+        <Contents className="Dark" />
+      </Grid>
+    </Router>
   );
 }
 
