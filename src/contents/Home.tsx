@@ -1,6 +1,10 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 import { Card, List, Image} from 'semantic-ui-react'
 import profile from '../profile.jpg'
+
+interface HomePageProps {
+  className : string
+}
 
 const ContactDetails: FunctionComponent<{}> = (): React.ReactElement => {
   return (
@@ -16,10 +20,10 @@ const ContactDetails: FunctionComponent<{}> = (): React.ReactElement => {
 }
 
 
-const HomePage: FunctionComponent<{}> = (): React.ReactElement => {
+const HomePage: FunctionComponent<HomePageProps> = (props): React.ReactElement => {
 
   return (
-    <Card.Group fluid="true" itemsPerRow={1}>
+    <Card.Group className= {props.className} fluid="true" itemsPerRow={1}>
       <Card raised >
         <Image src={profile} wrapped ui={false} size="medium" />
         <Card.Content>

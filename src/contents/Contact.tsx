@@ -1,10 +1,14 @@
 import React, { FunctionComponent } from "react";
 import { Card, List, Icon } from 'semantic-ui-react';
 
-const Contact: FunctionComponent<{}> = (): React.ReactElement => {
+interface ContactProps {
+  className : string
+}
 
+const Contact: FunctionComponent<ContactProps> = (props): React.ReactElement => {
+  
   return (
-    <Card.Group fluid="true" itemsPerRow={1}>
+    <Card.Group className={props.className} fluid="true" itemsPerRow={1}>
       <Card >
         <Card.Content>
           <Card.Header>Reach Me @</Card.Header>
