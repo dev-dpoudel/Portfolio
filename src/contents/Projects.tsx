@@ -20,7 +20,7 @@ const projectInfoCard = (projects: any, className: string) => {
 
     projectInfoCards.push(
       <Card className={className} key={item.id}>
-        <Card.Content>
+        <Card.Content className={className}>
           <Card.Header>{item.name}</Card.Header>
           <Card.Meta>
             <span>
@@ -35,7 +35,7 @@ const projectInfoCard = (projects: any, className: string) => {
             </List>
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
+        <Card.Content extra className={className}>
           <span>
             <Icon name="github" />
             <a href={item.homepage}>GitHub</a>

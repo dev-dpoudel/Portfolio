@@ -1,3 +1,8 @@
+@darkbackground : #3e3636;
+@lightbackground :#4592af;
+@pagelight:#226089;
+@pagedark: #3f3b3b;
+
 .adjustcenter {
     padding-top: 150px;
     padding-left: 200px;
@@ -15,27 +20,38 @@
 }
 
 .ui {
-    .raised.card.dark {
-        background: #3e3636;
+    .dark {
+        background: @pagedark;
     }
 
-    .cards {
-        background: #3e3636;
+    .light {
+        background: @pagelight;
+    }
 
-        .card.content {
-            background: #3e3636;
+    .raised.card {
+        .dark {
+            background: @darkbackground;
         }
-    }
 
-    .card.content {
-        background: #3e3636;
-    }
-
-    .ui.one.cards.dark {
-        background: #3e3636;
+        .light {
+            background: @lightbackground;
+        }
     }
 
     .dropdown {
         margin: 20px;
+    }
+
+    .one.cards {
+        .dark {
+            background: @darkbackground;
+        }
+
+        .light {
+            background: @lightbackground;
+            a{
+                color: #3e3636;
+            }
+        }
     }
 }
