@@ -1,10 +1,16 @@
-import React, { FunctionComponent } from 'react';
-import { Card, List, Icon } from 'semantic-ui-react';
+import React, { FunctionComponent, useState } from 'react';
+import { Card, List, Icon, Pagination, Dropdown, SemanticWIDTHS } from 'semantic-ui-react';
 
 interface projectDescription {
   className: string
   projects: []
 }
+
+const itemPerPage = [
+  { key: '1', value: 1, text: 1 },
+  { key: '2', value: 2, text: 2 },
+  { key: '3', value: 3, text: 3 }
+]
 
 const projectInfoCard = (projects: any, className: string) => {
 
@@ -45,10 +51,34 @@ const projectInfoCard = (projects: any, className: string) => {
 }
 
 const Projects: FunctionComponent<projectDescription> = (props): React.ReactElement => {
-  const projectCards = projectInfoCard(props.projects, props.className);
+  const [maxRecords, setMaxRecords] = useState<SemanticWIDTHS>(1)
+  const [page, setPage] = useState(1)
+  const setMaxRec = (value: any) => setMaxRecords(value)
+  const setPageNo = (e: any, activePage: number | string | undefined) => {
+    (typeof activePage === "string") ? setPage(1) : setPage(activePage || 1);
+  }
+
+  const defaultMaxRec = (typeof maxRecords == "number") ? maxRecords : 1;
+  const start = (page - 1) * defaultMaxRec;
+  const end = start + defaultMaxRec;
+
+  const projectCards = projectInfoCard(props.projects.slice(start, end), props.className);
 
   return (
-    <Card.Group className={props.className} fluid="true" itemsPerRow={1} children={projectCards} />
+    <div>
+      <Card.Group className={props.className} fluid="true" itemsPerRow={maxRecords} children={projectCards} />
+      <div className="centerfloat pagebottom">
+        <Pagination className={props.className}
+          defaultActivePage={1}
+          disabled={props.projects.length <= defaultMaxRec}
+          totalPages={props.projects.length / defaultMaxRec || 1}
+          onPageChange={(e, { activePage }) => setPageNo(e, activePage)} />
+        <Dropdown className={props.className + " floatleft"}
+          options={itemPerPage}
+          defaultValue={itemPerPage[0].value}
+          onChange={(e, d) => setMaxRec(d.value)} />
+      </div>
+    </div>
   );
 }
 
