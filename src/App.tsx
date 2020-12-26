@@ -15,7 +15,7 @@ const App: FunctionComponent<{}> = () => {
     <Router>
       <div className="adjustcenter">
         <Grid columns={2}>
-          <Navigate className={theme} theme={theme === "dark"} toggleTheme={toggleTheme} />
+          <Navigate theme={theme === "dark"} toggleTheme={toggleTheme} />
           <Contents className={theme} />
         </Grid>
       </div>

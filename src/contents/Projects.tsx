@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import { Card, List, Icon, Pagination, Dropdown, SemanticWIDTHS } from 'semantic-ui-react';
+import { Card, List, Icon, Pagination, Dropdown, SemanticWIDTHS} from 'semantic-ui-react';
 
 interface projectDescription {
   className: string
@@ -72,8 +72,8 @@ const Projects: FunctionComponent<projectDescription> = (props): React.ReactElem
           defaultActivePage={1}
           disabled={props.projects.length <= defaultMaxRec}
           totalPages={props.projects.length / defaultMaxRec || 1}
-          onPageChange={(e, { activePage }) => setPageNo(e, activePage)} />
-        <Dropdown className={props.className + " floatleft"}
+          onPageChange={(e, { activePage }) => setPageNo(e, activePage)} /> 
+        <Dropdown className={"floatleft " + props.className}
           options={itemPerPage}
           defaultValue={itemPerPage[0].value}
           onChange={(e, d) => setMaxRec(d.value)} />

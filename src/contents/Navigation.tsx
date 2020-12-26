@@ -3,7 +3,6 @@ import { Menu, Checkbox } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
 interface NavaigationProps {
-  className: string
   theme : boolean
   toggleTheme : (mode : boolean) => any
 }
@@ -18,8 +17,8 @@ const Navigate: FunctionComponent<NavaigationProps> = (props) => {
   }
 
   return (
-    <div className={props.className}>
-      <Menu className={props.className} icon vertical >
+    <div>
+      <Menu icon vertical >
         <Menu.Item
           name='home'
           active={activeMenu === 'home'}
@@ -42,7 +41,7 @@ const Navigate: FunctionComponent<NavaigationProps> = (props) => {
           <Checkbox slider
             checked={props.theme}
             onClick={() => props.toggleTheme(!props.theme)}
-            label={"Light"} />
+            label={"Dark"} />
         </Menu.Item>
       </Menu>
     </div>

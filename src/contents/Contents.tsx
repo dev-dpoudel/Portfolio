@@ -12,7 +12,7 @@ interface ContentProps {
 const Contents: FunctionComponent<ContentProps> =
   (props: ContentProps): React.ReactElement => {
 
-    const [projects, setProjects] : any [] = useState([]);
+    const [projects, setProjects]: any[] = useState([]);
     useEffect(() => {
       fetch("https://api.github.com/users/dev-dpoudel/repos")
         .then(data => {
@@ -25,25 +25,25 @@ const Contents: FunctionComponent<ContentProps> =
           console.log("Error fetching Repositories");
         });
     }, []);
-    
-    const profile = projects[0] || {"owner" : {}}
+
+    const profile = projects[0] || { "owner": {} }
 
     return (
-      <Grid.Column className={props.className} inverted="true" width={14}>
-        <Grid columns={14}>
-          <Segment>
+      <Grid.Column inverted="true" width={10}>
+        <Grid columns={14} >
+          <Segment className={props.className}>
             < Switch >
-            <Route exact path="/">
-                <HomePage className={props.className} profile = {profile.owner} />
+              <Route exact path="/">
+                <HomePage className={props.className} profile={profile.owner} />
               </Route>
               <Route exact path="/Home">
-                <HomePage className={props.className} profile = {profile.owner}/>
+                <HomePage className={props.className} profile={profile.owner} />
               </Route>
               <Route path="/Projects">
-                <Projects className={props.className} projects= {projects} />
+                <Projects className={props.className} projects={projects} />
               </Route>
               <Route path="/Contact">
-                <Contact className={props.className}/>
+                <Contact className={props.className} />
               </Route>
             </Switch>
           </Segment>

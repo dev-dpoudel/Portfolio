@@ -1,5 +1,5 @@
 /*******************************
      User Global Variables
 *******************************/
-@primaryColor: #002f4e;
-@pageBackground: green;
+@primaryColor: #dee1ec;
+@pageBackground: #f5eded;
