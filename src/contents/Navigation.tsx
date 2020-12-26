@@ -3,8 +3,8 @@ import { Menu, Checkbox } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
 interface NavaigationProps {
-  theme : boolean
-  toggleTheme : (mode : boolean) => any
+  theme: boolean
+  toggleTheme: (mode: boolean) => any
 }
 
 const Navigate: FunctionComponent<NavaigationProps> = (props) => {

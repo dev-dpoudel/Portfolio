@@ -31,7 +31,7 @@ const Contents: FunctionComponent<ContentProps> =
     return (
       <Grid.Column inverted="true" width={10}>
         <Grid columns={14} >
-          <Segment className={props.className}>
+          <Segment className={"contents " + props.className}>
             < Switch >
               <Route exact path="/">
                 <HomePage className={props.className} profile={profile.owner} />

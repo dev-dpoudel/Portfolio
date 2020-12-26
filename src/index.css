@@ -10,8 +10,6 @@
   padding-left: 60 px;
   margin: 20px;
 }
-.ui .dropdown .floatleft {
-  margin: 10px;
-  float: right;
-  padding-left: 10px;
+.ui .dropdown {
+  margin: 20px;
 }
