@@ -10,6 +10,21 @@
   padding-left: 60 px;
   margin: 20px;
 }
+.ui .raised.card.dark {
+  background: #3e3636;
+}
+.ui .cards {
+  background: #3e3636;
+}
+.ui .cards .card.content {
+  background: #3e3636;
+}
+.ui .card.content {
+  background: #3e3636;
+}
+.ui .ui.one.cards.dark {
+  background: #3e3636;
+}
 .ui .dropdown {
   margin: 20px;
 }
